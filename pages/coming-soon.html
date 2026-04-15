@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - BuildPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#2563eb', secondary: '#f97316' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🔨</text>
+</svg>">
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+        <!-- Logo -->
+        <div class="mb-8">
+            <a href="index.html" class="inline-flex items-center space-x-2">
+                <i class="fas fa-home text-5xl text-blue-500"></i>
+                <span class="text-4xl font-bold text-white">BuildPro</span>
+            </a>
+        </div>
+        
+        <!-- Construction Icon -->
+        <div class="mb-8 animate-pulse">
+            <i class="fas fa-hard-hat text-8xl text-orange-500"></i>
+        </div>
+        
+        <!-- Main Heading -->
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
+            Something Amazing Is<br>
+            <span class="text-orange-400">Under Construction</span>
+        </h1>
+        
+        <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto animate-fade-in-up">
+            We're working hard to bring you an incredible new feature. 
+            Stay tuned for our launch!
+        </p>
+        
+        <!-- Countdown Timer -->
+        <div id="countdown" class="mb-12 animate-fade-in-up" data-target="2026-05-01T00:00:00">
+            <!-- Countdown will be populated by JavaScript -->
+        </div>
+        
+        <!-- Email Subscription -->
+        <div class="max-w-md mx-auto mb-12 animate-fade-in-up">
+            <p class="text-blue-100 mb-4">Get notified when we launch:</p>
+            <form class="flex gap-2">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    required
+                    class="flex-1 px-6 py-4 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                >
+                <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <i class="fas fa-bell mr-2"></i>Notify Me
+                </button>
+            </form>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex justify-center space-x-4 mb-8 animate-fade-in-up">
+            <a href="#" class="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300">
+                <i class="fab fa-facebook-f text-xl text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-blue-400 transition-all duration-300">
+                <i class="fab fa-twitter text-xl text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-pink-600 transition-all duration-300">
+                <i class="fab fa-instagram text-xl text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-300">
+                <i class="fab fa-linkedin-in text-xl text-white"></i>
+            </a>
+        </div>
+        
+        <!-- Back to Home -->
+        <div class="animate-fade-in-up">
+            <a href="index.html" class="inline-flex items-center text-blue-200 hover:text-white transition">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Homepage
+            </a>
+        </div>
+    </div>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
+    
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

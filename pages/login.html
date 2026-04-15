@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BuildPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#2563eb', secondary: '#f97316' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🔨</text>
+</svg>">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-orange-50 dark:from-slate-900 dark:to-slate-800 min-h-screen flex items-center justify-center p-4">
+    
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <a href="index.html" class="inline-flex items-center space-x-2">
+                <i class="fas fa-home text-4xl text-blue-600"></i>
+                <span class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">BuildPro</span>
+            </a>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">Welcome back! Please login to your account.</p>
+        </div>
+        
+        <!-- Login Form -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+            
+         <form id="loginForm" class="space-y-5">
+
+    <!-- Email -->
+    <div>
+        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+            Email Address
+        </label>
+        <input type="email" required
+            class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+            placeholder="you@example.com">
+    </div>
+    
+    <!-- Password -->
+    <div>
+        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+            Password
+        </label>
+        <div class="relative">
+            <input id="password" type="password" required
+                class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2.5 pr-10 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                placeholder="Enter your password">
+            
+            <!-- Toggle Password -->
+            <button type="button" onclick="togglePassword()" 
+                class="absolute inset-y-0 right-3 flex items-center text-slate-500 hover:text-blue-600">
+                <i id="eyeIcon" class="fas fa-eye"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Options -->
+    <div class="flex items-center justify-between">
+        <label class="flex items-center cursor-pointer">
+            <input type="checkbox"
+                class="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
+            <span class="ml-2 text-sm text-slate-600 dark:text-slate-400">
+                Remember me
+            </span>
+        </label>
+
+        <a href="#" class="text-sm font-medium text-blue-600 hover:underline">
+            Forgot password?
+        </a>
+    </div>
+    
+    <!-- Submit -->
+    <button type="submit"
+        class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2.5 rounded-xl transition shadow-sm">
+        <i class="fas fa-sign-in-alt"></i>
+        Login
+    </button>
+
+</form>
+
+<!-- Script for password toggle -->
+<script>
+function togglePassword() {
+    const password = document.getElementById("password");
+    const icon = document.getElementById("eyeIcon");
+
+    if (password.type === "password") {
+        password.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        password.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+</script>
+            
+            <!-- Social Login -->
+            <div class="mt-6">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300 dark:border-slate-600"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white dark:bg-slate-800 text-gray-500">Or continue with</span>
+                    </div>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-2 gap-4">
+                    <button class="flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition">
+                        <i class="fab fa-google text-red-500 mr-2"></i>Google
+                    </button>
+                    <button class="flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition">
+                        <i class="fab fa-facebook text-blue-600 mr-2"></i>Facebook
+                    </button>
+                </div>
+            </div>
+            
+            <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+                Don't have an account? 
+                <a href="register.html" class="text-blue-600 font-semibold hover:underline">Register here</a>
+            </p>
+        </div>
+        
+        <!-- Back to Home -->
+        <div class="text-center mt-6">
+            <a href="index.html" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Home
+            </a>
+        </div>
+    </div>
+    
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

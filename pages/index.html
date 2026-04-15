@@ -1,0 +1,541 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildPro - Home Renovation & Contracting Company</title>
+    <meta name="description" content="Premium home renovation and contracting services. Transform your space with BuildPro.">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#f97316',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🔨</text>
+</svg>">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 bg-white dark:bg-slate-900 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <i class="fas fa-home text-3xl text-blue-600"></i>
+                        <span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">BuildPro</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <div class="relative group">
+                        <button class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-700">Home 1</a>
+                            <a href="index2.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-700">Home 2</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">About</a>
+                    <a href="services.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Services</a>
+                    <a href="blog.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Blog</a>
+                    <a href="pricing.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Pricing</a>
+                    <a href="contact.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Contact</a>
+                </div>
+                
+                <!-- Right Side Actions -->
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="dashboard.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center">
+                        <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                    </a>
+                    <button id="rtlToggle" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">
+                        &#127757; RTL
+                    </button>
+                    <button id="darkModeToggle" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn-primary">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Login
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div id="mobileMenuContent" class="mobile-menu-content">
+            <div class="p-4 border-b dark:border-slate-700 flex justify-between items-center">
+                <span class="text-xl font-bold">Menu</span>
+                <button id="closeMobileMenu" class="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Home 1</a>
+                <a href="index2.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Home 2</a>
+                <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">About</a>
+                <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Services</a>
+                <a href="blog.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Blog</a>
+                <a href="pricing.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Pricing</a>
+                <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Contact</a>
+                <a href="dashboard.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Dashboard</a>
+                <div class="grid grid-cols-2 gap-2 mt-2">
+                    <button data-toggle="direction" class="mobile-toggle-btn px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition text-left rtl:text-right">RTL</button>
+                    <button data-toggle="dark-mode" class="mobile-toggle-btn px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition text-left rtl:text-right"><i class="fas fa-moon mr-2"></i>Dark</button>
+                </div>
+                <a href="login.html" class="block px-4 py-3 rounded-lg bg-blue-600 text-white text-center mt-4">Login</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="pt-20 min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920" alt="Construction Background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white animate-fade-in-up">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Transform Your Home Into a <span class="text-orange-400">Masterpiece</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300">
+                        Professional renovation services that bring your vision to life. Quality craftsmanship, on-time delivery, and exceptional results guaranteed.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="openModal('quoteModal')" class="btn-secondary text-lg px-8 py-4">
+                            <i class="fas fa-calculator mr-2"></i>Get Free Quote
+                        </button>
+                        <a href="services.html" class="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 text-lg">
+                            <i class="fas fa-tools mr-2"></i>Our Services
+                        </a>
+                    </div>
+                    <div class="mt-12 grid grid-cols-3 gap-6">
+                        <div>
+                            <div class="counter text-4xl font-bold text-orange-400" data-target="500" data-suffix="+">0</div>
+                            <div class="text-sm text-gray-300 mt-2">Projects Completed</div>
+                        </div>
+                        <div>
+                            <div class="counter text-4xl font-bold text-orange-400" data-target="15" data-suffix="+">0</div>
+                            <div class="text-sm text-gray-300 mt-2">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="counter text-4xl font-bold text-orange-400" data-target="450" data-suffix="+">0</div>
+                            <div class="text-sm text-gray-300 mt-2">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slide-in-right">
+                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800" alt="Home Renovation" class="w-full h-72 md:h-96 object-cover rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Overview -->
+    <section class="section-padding bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Premium Services</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Comprehensive renovation solutions tailored to your needs</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card card-hover">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-couch text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Interior Design</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Transform your living spaces with modern, functional interior design solutions.</p>
+                    <a href="service-details.html" class="text-blue-600 font-semibold hover:underline">Learn More &#8594;</a>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card card-hover">
+                    <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Exterior Renovation</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Enhance curb appeal with professional exterior remodeling and finishing.</p>
+                    <a href="service-details.html" class="text-blue-600 font-semibold hover:underline">Learn More &#8594;</a>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card card-hover">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-faucet text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Plumbing</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Expert plumbing installation, repair, and maintenance services.</p>
+                    <a href="service-details.html" class="text-blue-600 font-semibold hover:underline">Learn More &#8594;</a>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card card-hover">
+                    <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Electrical Work</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Safe and reliable electrical installations and upgrades.</p>
+                    <a href="service-details.html" class="text-blue-600 font-semibold hover:underline">Learn More &#8594;</a>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card card-hover">
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-utensils text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Kitchen Remodeling</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Create your dream kitchen with custom designs and quality materials.</p>
+                    <a href="service-details.html" class="text-blue-600 font-semibold hover:underline">Learn More &#8594;</a>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card card-hover">
+                    <div class="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bath text-3xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Bathroom Renovation</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Luxurious bathroom transformations for comfort and style.</p>
+                    <a href="service-details.html" class="text-blue-600 font-semibold hover:underline">Learn More &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Projects (Before/After) -->
+    <section class="section-padding bg-gray-50 dark:bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">See the transformation - drag the slider to compare before and after</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="before-after-container h-96 cursor-ew-resize">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800" alt="After" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="before-image absolute inset-0 w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800" alt="Before" class="w-full h-full object-cover">
+                    </div>
+                    <div class="before-after-slider"></div>
+                    <div class="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm">BEFORE</div>
+                    <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded text-sm">AFTER</div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="before-after-container h-96 cursor-ew-resize">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="After" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="before-image absolute inset-0 w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800" alt="Before" class="w-full h-full object-cover">
+                    </div>
+                    <div class="before-after-slider"></div>
+                    <div class="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm">BEFORE</div>
+                    <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded text-sm">AFTER</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section class="section-padding bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Why Choose Us" class="rounded-2xl shadow-xl">
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Why Choose BuildPro?</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">We deliver excellence in every project with our commitment to quality, transparency, and customer satisfaction.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-check-circle text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">Licensed & Insured</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Fully licensed professionals with comprehensive insurance coverage.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">On-Time Delivery</h3>
+                                <p class="text-gray-600 dark:text-gray-400">We respect your time and complete projects within agreed timelines.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-dollar-sign text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">Transparent Pricing</h3>
+                                <p class="text-gray-600 dark:text-gray-400">No hidden costs. Clear, upfront pricing for all services.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shield-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">Quality Guarantee</h3>
+                                <p class="text-gray-600 dark:text-gray-400">All work backed by our comprehensive warranty program.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="section-padding bg-gray-50 dark:bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Real testimonials from satisfied homeowners</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">"BuildPro transformed our outdated kitchen into a modern masterpiece. The team was professional, punctual, and the results exceeded our expectations!"</p>
+                    <div class="flex items-center">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=2563eb&color=fff" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-bold">Sarah Johnson</div>
+                            <div class="text-sm text-gray-500">Kitchen Renovation</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">"Outstanding work on our bathroom remodel! The attention to detail and quality of craftsmanship is remarkable. Highly recommend BuildPro!"</p>
+                    <div class="flex items-center">
+                        <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=f97316&color=fff" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-bold">Michael Chen</div>
+                            <div class="text-sm text-gray-500">Bathroom Renovation</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">"From start to finish, the experience was seamless. They listened to our vision and delivered beyond what we imagined. True professionals!"</p>
+                    <div class="flex items-center">
+                        <img src="https://ui-avatars.com/api/?name=Emily+Rodriguez&background=10b981&color=fff" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-bold">Emily Rodriguez</div>
+                            <div class="text-sm text-gray-500">Full Home Renovation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Banner -->
+    <section class="py-20 gradient-primary">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Get a free consultation and quote for your renovation project today!</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="openModal('quoteModal')" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl">
+                    <i class="fas fa-phone-alt mr-2"></i>Request Free Quote
+                </button>
+                <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
+                    <i class="fas fa-envelope mr-2"></i>Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-home text-3xl text-blue-500"></i>
+                        <span class="text-2xl font-bold">BuildPro</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Professional home renovation and contracting services you can trust.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Interior Design</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Exterior Renovation</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Kitchen Remodeling</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Bathroom Renovation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-blue-500 mt-1"></i>
+                            <span class="text-gray-400">123 Construction Ave, Building City, BC 12345</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-blue-500"></i>
+                            <span class="text-gray-400">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-blue-500"></i>
+                            <span class="text-gray-400">info@buildpro.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 BuildPro. All rights reserved. | Designed with &#10084;&#65039; for Home Renovation</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Quote Request Modal -->
+    <div id="quoteModal" class="modal fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b dark:border-slate-700 flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Request Free Quote</h3>
+                <button onclick="closeModal('quoteModal')" class="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="quoteForm" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" required class="form-input" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="form-label">Email *</label>
+                            <input type="email" required class="form-input" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="form-label">Phone *</label>
+                            <input type="tel" required class="form-input" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div>
+                            <label class="form-label">Service Type</label>
+                            <select class="form-input">
+                                <option>Kitchen Remodeling</option>
+                                <option>Bathroom Renovation</option>
+                                <option>Interior Design</option>
+                                <option>Exterior Renovation</option>
+                                <option>Full Home Renovation</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label">Project Details</label>
+                        <textarea rows="4" class="form-input" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-700 transition hidden z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Custom JS -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details - BuildPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#2563eb', secondary: '#f97316' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🔨</text>
+</svg>">
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 bg-white dark:bg-slate-900 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <i class="fas fa-home text-3xl text-blue-600"></i>
+                        <span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">BuildPro</span>
+                    </a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-1">
+                    <div class="relative group">
+                        <button class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center">Home <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-700">Home 1</a>
+                            <a href="index2.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-700">Home 2</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">About</a>
+                    <a href="services.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Services</a>
+                    <a href="blog.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Blog</a>
+                    <a href="pricing.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Pricing</a>
+                    <a href="contact.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Contact</a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="dashboard.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
+                    <button id="rtlToggle" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">&#127757; RTL</button>
+                    <button id="darkModeToggle" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition"><i class="fas fa-moon"></i></button>
+                    <a href="login.html" class="btn-primary"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+                </div>
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition"><i class="fas fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mobileMenu" class="mobile-menu">
+        <div id="mobileMenuContent" class="mobile-menu-content">
+            <div class="p-4 border-b dark:border-slate-700 flex justify-between items-center">
+                <span class="text-xl font-bold">Menu</span>
+                <button id="closeMobileMenu" class="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <div class="p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Home 1</a>
+                <a href="index2.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Home 2</a>
+                <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">About</a>
+                <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Services</a>
+                <a href="blog.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Blog</a>
+                <a href="pricing.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Pricing</a>
+                <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Contact</a>
+                <a href="dashboard.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Dashboard</a>
+                <div class="grid grid-cols-2 gap-2 mt-2">
+                    <button data-toggle="direction" class="mobile-toggle-btn px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition text-left rtl:text-right">RTL</button>
+                    <button data-toggle="dark-mode" class="mobile-toggle-btn px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition text-left rtl:text-right"><i class="fas fa-moon mr-2"></i>Dark</button>
+                </div>
+                <a href="login.html" class="block px-4 py-3 rounded-lg bg-blue-600 text-white text-center mt-4">Login</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Blog Content -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <article class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200" alt="Blog Featured Image" class="w-full h-96 object-cover">
+                    
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                            <span><i class="far fa-calendar mr-1"></i>April 1, 2026</span>
+                            <span><i class="far fa-user mr-1"></i>By Lisa Wang</span>
+                            <span><i class="far fa-clock mr-1"></i>5 min read</span>
+                        </div>
+                        
+                        <h1 class="text-4xl font-bold mb-6">10 Essential Kitchen Renovation Tips for 2026</h1>
+                        
+                        <div class="prose dark:prose-invert max-w-none">
+                            <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">Planning a kitchen renovation can be both exciting and overwhelming. With so many design choices, materials, and layouts to consider, it's essential to have a clear strategy. Here are ten expert tips to help you create your dream kitchen in 2026.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">1. Plan Your Layout Around the Work Triangle</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">The work triangle connects your sink, stove, and refrigerator. These three elements should form a triangle with each side measuring between 4 and 9 feet for optimal efficiency.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">2. Invest in Quality Cabinets</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Cabinets are one of the most visible and used elements in your kitchen. Choose durable materials like solid wood or high-quality plywood that will withstand daily use.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">3. Maximize Storage Space</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Consider pull-out drawers, lazy Susans, vertical dividers, and ceiling-high cabinets to maximize every inch of storage space.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">4. Choose Durable Countertops</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Quartz, granite, and marble remain popular choices. Consider your lifestyle and maintenance preferences when selecting countertop materials.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">5. Prioritize Lighting</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Layer your lighting with ambient, task, and accent lighting. Under-cabinet lighting is essential for food preparation areas.</p>
+                            
+                            <blockquote class="border-l-4 border-blue-600 pl-6 my-8 italic text-lg text-gray-600 dark:text-gray-400">
+                                "A well-designed kitchen not only looks beautiful but also functions efficiently, making cooking and entertaining a joy."
+                            </blockquote>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">6. Don't Skimp on Ventilation</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">A quality range hood removes smoke, steam, and cooking odors while protecting your cabinets from grease buildup.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">7. Think About Energy Efficiency</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Choose Energy Star-rated appliances and LED lighting to reduce energy consumption and utility bills.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">8. Create a Realistic Budget</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Set a budget and add 10-20% for unexpected expenses. Prioritize spending on items that matter most to you.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">9. Hire Professionals</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">While DIY can save money, complex tasks like electrical, plumbing, and structural changes require licensed professionals.</p>
+                            
+                            <h2 class="text-2xl font-bold mt-8 mb-4">10. Plan for the Future</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Consider universal design principles and aging-in-place features if you plan to stay in your home long-term.</p>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="mt-8 pt-8 border-t dark:border-slate-700">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 rounded-full text-sm">Kitchen</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 rounded-full text-sm">Renovation</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 rounded-full text-sm">Tips</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 rounded-full text-sm">Design</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Share -->
+                        <div class="mt-6 flex items-center gap-4">
+                            <span class="font-semibold">Share:</span>
+                            <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition"><i class="fab fa-facebook-f text-white"></i></a>
+                            <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition"><i class="fab fa-twitter text-white"></i></a>
+                            <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition"><i class="fab fa-instagram text-white"></i></a>
+                            <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition"><i class="fab fa-linkedin-in text-white"></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Sidebar -->
+                <aside class="space-y-6">
+                    <!-- Search -->
+                    <div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">Search</h3>
+                        <div class="relative">
+                            <input type="text" placeholder="Search articles..." class="form-input pl-10">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Posts -->
+                    <div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">Recent Posts</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-center gap-3 group">
+                                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=200" class="w-20 h-20 object-cover rounded-lg">
+                                <div>
+                                    <h4 class="font-semibold group-hover:text-blue-600 transition">Top Interior Design Trends</h4>
+                                    <p class="text-sm text-gray-500">Mar 28, 2026</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 group">
+                                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=200" class="w-20 h-20 object-cover rounded-lg">
+                                <div>
+                                    <h4 class="font-semibold group-hover:text-blue-600 transition">Bathroom Remodeling Budget</h4>
+                                    <p class="text-sm text-gray-500">Mar 20, 2026</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 group">
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200" class="w-20 h-20 object-cover rounded-lg">
+                                <div>
+                                    <h4 class="font-semibold group-hover:text-blue-600 transition">Choosing Color Schemes</h4>
+                                    <p class="text-sm text-gray-500">Mar 15, 2026</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Categories -->
+                    <div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">Categories</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="flex justify-between hover:text-blue-600 transition"><span>Renovation Tips</span><span class="text-gray-500">(12)</span></a></li>
+                            <li><a href="#" class="flex justify-between hover:text-blue-600 transition"><span>Interior Design</span><span class="text-gray-500">(8)</span></a></li>
+                            <li><a href="#" class="flex justify-between hover:text-blue-600 transition"><span>Construction Trends</span><span class="text-gray-500">(6)</span></a></li>
+                            <li><a href="#" class="flex justify-between hover:text-blue-600 transition"><span>Kitchen Ideas</span><span class="text-gray-500">(10)</span></a></li>
+                            <li><a href="#" class="flex justify-between hover:text-blue-600 transition"><span>Bathroom Design</span><span class="text-gray-500">(7)</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- CTA -->
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-4">Need Renovation Help?</h3>
+                        <p class="mb-4">Get expert advice for your project</p>
+                        <button onclick="openModal('quoteModal')" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition w-full">
+                            Get Free Quote
+                        </button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-home text-3xl text-blue-500"></i>
+                        <span class="text-2xl font-bold">BuildPro</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Professional home renovation services.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Interior Design</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Exterior Renovation</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Kitchen Remodeling</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Bathroom Renovation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt text-blue-500 mt-1"></i><span class="text-gray-400">123 Construction Ave, Building City, BC 12345</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-phone text-blue-500"></i><span class="text-gray-400">+1 (555) 123-4567</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-envelope text-blue-500"></i><span class="text-gray-400">info@buildpro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 BuildPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-700 transition hidden z-40"><i class="fas fa-arrow-up"></i></button>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

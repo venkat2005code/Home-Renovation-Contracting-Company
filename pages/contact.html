@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BuildPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#2563eb', secondary: '#f97316' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🔨</text>
+</svg>">
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Navigation (Same structure) -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 bg-white dark:bg-slate-900 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <i class="fas fa-home text-3xl text-blue-600"></i>
+                        <span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">BuildPro</span>
+                    </a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-1">
+                    <div class="relative group">
+                        <button class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center">Home <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-700">Home 1</a>
+                            <a href="index2.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-700">Home 2</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">About</a>
+                    <a href="services.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Services</a>
+                    <a href="blog.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Blog</a>
+                    <a href="pricing.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Pricing</a>
+                    <a href="contact.html" class="nav-link px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Contact</a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="dashboard.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
+                    <button id="rtlToggle" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">&#127757; RTL</button>
+                    <button id="darkModeToggle" class="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition"><i class="fas fa-moon"></i></button>
+                    <a href="login.html" class="btn-primary"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+                </div>
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition"><i class="fas fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mobileMenu" class="mobile-menu">
+        <div id="mobileMenuContent" class="mobile-menu-content">
+            <div class="p-4 border-b dark:border-slate-700 flex justify-between items-center">
+                <span class="text-xl font-bold">Menu</span>
+                <button id="closeMobileMenu" class="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <div class="p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Home 1</a>
+                <a href="index2.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Home 2</a>
+                <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">About</a>
+                <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Services</a>
+                <a href="blog.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Blog</a>
+                <a href="pricing.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Pricing</a>
+                <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Contact</a>
+                <a href="dashboard.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700">Dashboard</a>
+                <div class="grid grid-cols-2 gap-2 mt-2">
+                    <button data-toggle="direction" class="mobile-toggle-btn px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition text-left rtl:text-right">RTL</button>
+                    <button data-toggle="dark-mode" class="mobile-toggle-btn px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition text-left rtl:text-right"><i class="fas fa-moon mr-2"></i>Dark</button>
+                </div>
+                <a href="login.html" class="block px-4 py-3 rounded-lg bg-blue-600 text-white text-center mt-4">Login</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">Contact Us</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto animate-fade-in-up">Get in touch with our team for a free consultation</p>
+        </div>
+    </section>
+    
+    <!-- Contact Info & Form -->
+    <section class="section-padding bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <!-- Contact Info Cards -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-700 p-8 rounded-2xl text-center card-hover">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Our Office</h3>
+                    <p class="text-gray-600 dark:text-gray-400">123 Construction Ave<br>Building City, BC 12345</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-slate-800 dark:to-slate-700 p-8 rounded-2xl text-center card-hover">
+                    <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Phone Number</h3>
+                    <p class="text-gray-600 dark:text-gray-400">+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-slate-800 dark:to-slate-700 p-8 rounded-2xl text-center card-hover">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Email Address</h3>
+                    <p class="text-gray-600 dark:text-gray-400">info@buildpro.com<br>support@buildpro.com</p>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-stretch">
+                <!-- Contact Form -->
+                <div class="relative h-full overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-xl">
+                    <div class="h-2 bg-gradient-to-r from-blue-600 via-orange-500 to-green-500"></div>
+                    <div class="p-8 md:p-10">
+                        <div class="mb-8">
+                            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-50 dark:bg-slate-700 text-blue-700 dark:text-blue-300 text-sm font-semibold mb-4">
+                                <i class="fas fa-comments"></i>
+                                Fast Response Guaranteed
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-2">Send Us a Message</h2>
+                            <p class="text-gray-600 dark:text-gray-400">Share your ideas and project details. Our renovation experts will contact you shortly.</p>
+                        </div>
+
+                        <form id="contactForm" class="space-y-6">
+                            <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/50 p-6 shadow-sm">
+
+    <!-- Header -->
+    <div class="flex items-center gap-2 mb-5 text-sm font-semibold text-blue-700 dark:text-blue-300">
+        <i class="fas fa-user-circle"></i>
+        <span>Personal Details</span>
+    </div>
+
+    <!-- Name Fields -->
+    <div class="grid md:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                First Name <span class="text-red-500">*</span>
+            </label>
+            <input type="text" required
+                class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                placeholder="Enter your first name">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                Last Name <span class="text-red-500">*</span>
+            </label>
+            <input type="text" required
+                class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                placeholder="Enter your last name">
+        </div>
+    </div>
+
+    <!-- Contact Fields -->
+    <div class="grid md:grid-cols-2 gap-4 mt-5">
+        <div>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                Email Address <span class="text-red-500">*</span>
+            </label>
+            <input type="email" required
+                class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                placeholder="you@example.com">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                Phone Number
+            </label>
+            <input type="tel"
+                class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                placeholder="+91 98765 43210">
+        </div>
+    </div>
+
+    <!-- Optional Helper Text -->
+    <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">
+        We respect your privacy. Your details will only be used to contact you regarding your request.
+    </p>
+
+</div>
+
+                          <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/50 p-6 shadow-sm">
+    
+    <!-- Header -->
+    <div class="flex items-center gap-2 mb-5 text-sm font-semibold text-orange-600 dark:text-orange-300">
+        <i class="fas fa-tools"></i>
+        <span>Project Details</span>
+    </div>
+
+    <!-- Service Type -->
+    <div>
+        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+            Service Type <span class="text-red-500">*</span>
+        </label>
+        <select required 
+            class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition">
+            <option value="">Select a service</option>
+            <option>Kitchen Remodeling</option>
+            <option>Bathroom Renovation</option>
+            <option>Interior Design</option>
+            <option>Exterior Renovation</option>
+            <option>Full Home Renovation</option>
+        </select>
+    </div>
+
+    <!-- Message -->
+    <div class="mt-5">
+        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+            Project Description <span class="text-red-500">*</span>
+        </label>
+
+        <textarea rows="6" required
+            placeholder="Describe your project in detail... 
+• What work do you need?
+• Preferred style or design?
+• Budget (optional)?
+• Timeline?"
+            class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-sm leading-relaxed resize-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition min-h-[160px]"></textarea>
+
+        <!-- Helper text -->
+        <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+            The more details you provide, the better we can understand your needs.
+        </p>
+    </div>
+
+</div>
+
+                            <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/40 p-4">
+                                <label for="contactConsent" class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
+                                    <input id="contactConsent" type="checkbox" class="mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500" required>
+                                    <span>I agree to be contacted by BuildPro regarding my request.</span>
+                                </label>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <button type="submit" class="btn-primary w-full py-4 text-lg">
+                                    <i class="fas fa-paper-plane mr-2"></i>Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Map & Business Hours -->
+                <div class="h-full flex flex-col">
+                    <!-- Google Maps Embed -->
+                    <div class="bg-gray-200 dark:bg-slate-700 rounded-2xl overflow-hidden flex-1 min-h-[320px] mb-8">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1234567890" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Business Hours -->
+                    <div class="bg-gray-50 dark:bg-slate-800 p-8 rounded-2xl shadow-lg flex-1">
+                        <h3 class="text-2xl font-bold mb-6">Business Hours</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Monday - Friday:</span>
+                                <span class="text-gray-600 dark:text-gray-400">8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Saturday:</span>
+                                <span class="text-gray-600 dark:text-gray-400">9:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Sunday:</span>
+                                <span class="text-gray-600 dark:text-gray-400">Closed</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 p-6 bg-blue-50 dark:bg-slate-700 rounded-xl">
+                            <h4 class="font-bold text-lg mb-2"><i class="fas fa-info-circle text-blue-600 mr-2"></i>Emergency Services</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">24/7 emergency repair services available for urgent situations.</p>
+                            <p class="text-blue-600 font-bold mt-2">Call: +1 (555) 999-8888</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 gradient-primary">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Request a free quote and consultation today</p>
+            <button onclick="openModal('quoteModal')" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl">
+                <i class="fas fa-calculator mr-2"></i>Request Free Quote
+            </button>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-home text-3xl text-blue-500"></i>
+                        <span class="text-2xl font-bold">BuildPro</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Professional home renovation and contracting services you can trust.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Interior Design</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Exterior Renovation</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Kitchen Remodeling</a></li>
+                        <li><a href="service-details.html" class="text-gray-400 hover:text-white transition">Bathroom Renovation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt text-blue-500 mt-1"></i><span class="text-gray-400">123 Construction Ave, Building City, BC 12345</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-phone text-blue-500"></i><span class="text-gray-400">+1 (555) 123-4567</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-envelope text-blue-500"></i><span class="text-gray-400">info@buildpro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 BuildPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-700 transition hidden z-40"><i class="fas fa-arrow-up"></i></button>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
